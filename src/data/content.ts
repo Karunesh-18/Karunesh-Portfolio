@@ -83,21 +83,12 @@ export const experience = [
       "Debugs and optimizes across several projects; helps with deployment and production fixes.",
     ],
   },
-  {
-    when: "March 2026",
-    role: "MERN Stack Developer (internship)",
-    org: "Better Tomorrow",
-    points: [
-      "Built full-stack apps on MongoDB, Express, React and Node with auth and database integration.",
-      "Designed REST APIs, CRUD flows and performance fixes.",
-    ],
-  },
 ];
 
 export const education = [
-  { when: "2024 – 2028", what: "B.E. Computer Science and Engineering", where: "Sri Eshwar College of Engineering", score: "CGPA 7.5" },
-  { when: "2022 – 2024", what: "HSC", where: "Bharatiya Vidhya Mandir Matric Hr. Sec. School", score: "79%" },
-  { when: "2020 – 2022", what: "SSLC", where: "Shanthi Niketan Matric School", score: "75%" },
+  { when: "2024 – 2028", what: "B.E. Computer Science and Engineering", where: "Sri Eshwar College of Engineering" },
+  { when: "2022 – 2024", what: "HSC", where: "Bharatiya Vidhya Mandir Matric Hr. Sec. School" },
+  { when: "2020 – 2022", what: "SSLC", where: "Shanthi Niketan Matric School" },
 ];
 
 export const skills: { layer: string; items: string[] }[] = [
@@ -115,9 +106,11 @@ export const practice = [
   { what: "CodeChef", how: "Bronze badge", href: undefined },
 ];
 
-export const certificates = [
-  "Data Structures and Algorithms using C and C++ (Udemy)",
-  "SQL Advanced (HackerRank)",
-  "Oracle Java Course (Oracle)",
-  "Introduction to Gen AI (IBM)",
+export const gallery = [
+  { file: "gallery-workspace.svg", caption: "Workspace" },
+  { file: "gallery-event.svg", caption: "Thiran event day" },
+  { file: "gallery-hackathon.svg", caption: "Hackathon" },
+  { file: "gallery-team.svg", caption: "Team" },
+  { file: "gallery-whiteboard.svg", caption: "Whiteboard session" },
+  { file: "gallery-setup.svg", caption: "Dev setup" },
 ];

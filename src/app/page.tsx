@@ -2,27 +2,19 @@ import CableField from "@/components/CableField";
 import Motion from "@/components/Motion";
 import Projects from "@/components/Projects";
 import CopyEmail from "@/components/CopyEmail";
-import repos from "@/data/repos.json";
-import { person, experience, education, skills, practice, certificates } from "@/data/content";
+import Image from "next/image";
+import Gallery from "@/components/Gallery";
+import { person, experience, education, skills, practice } from "@/data/content";
 
 const nav = [
   { id: "top", label: "Home" },
+  { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "record", label: "Record" },
   { id: "stack", label: "Stack" },
-  { id: "repos", label: "Repos" },
+  { id: "life", label: "Life" },
   { id: "contact", label: "Contact" },
 ];
-
-const own = repos.filter((r) => !r.fork).sort((a, b) => (a.pushed < b.pushed ? 1 : -1));
-
-const langCount = own.reduce<Record<string, number>>((acc, r) => {
-  if (r.lang) acc[r.lang] = (acc[r.lang] ?? 0) + 1;
-  return acc;
-}, {});
-const langs = Object.entries(langCount).sort((a, b) => b[1] - a[1]);
-const langTotal = langs.reduce((n, [, c]) => n + c, 0);
-const tints = ["var(--cobalt)", "var(--orange)", "var(--yellow)", "var(--green)"];
 
 function HeroName({ text }: { text: string }) {
   return (
@@ -70,7 +62,7 @@ export default function Home() {
                 Full stack developer. I build the app, then get it running on a server people can reach.
               </p>
               <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
-                <a className="plug" href={person.resume} download>
+                <a className="plug" href={person.resume} target="_blank" rel="noreferrer">
                   <span className="body">Resume</span>
                   <span className="tip" />
                 </a>
@@ -79,6 +71,23 @@ export default function Home() {
                   <span className="tip" />
                 </a>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="unit">
+          <div className="about-grid">
+            <div className="reveal about-photo">
+              <Image src="/placeholders/portrait.svg" alt="Portrait of Karunesh" width={1000} height={1250} priority />
+            </div>
+            <div className="reveal" style={{ display: "grid", gap: "1.25rem", alignContent: "end", maxWidth: "38rem" }}>
+              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: 0 }}>Who is plugged in</h2>
+              <p style={{ margin: 0, textWrap: "pretty" }}>
+                I'm a computer science student at Sri Eshwar College of Engineering and a full stack developer at EFIQ Solutions.
+              </p>
+              <p style={{ margin: 0, color: "var(--steel)", textWrap: "pretty" }}>
+                I like the whole path: building the React and Node or FastAPI app, then putting it on a server with HTTPS and keeping it running. Thiran, a platform for a large technical event, taught me that part the hard way.
+              </p>
             </div>
           </div>
         </section>
@@ -117,7 +126,6 @@ export default function Home() {
                         <br />
                         <span style={{ color: "var(--steel)" }}>{e.where}</span>
                       </td>
-                      <td className="mono" style={{ whiteSpace: "nowrap" }}>{e.score}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -153,44 +161,13 @@ export default function Home() {
               </tbody>
             </table>
           </div>
-          <h3 className="display reveal" style={{ fontSize: "2rem", margin: "3.5rem 0 1rem" }}>Certificates</h3>
-          <ul className="reveal" style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: "0.4rem" }}>
-            {certificates.map((c) => <li key={c}>{c}</li>)}
-          </ul>
         </section>
 
-        <section id="repos" className="unit">
-          <h2 className="display reveal" style={{ fontSize: "clamp(3rem,9vw,8rem)", margin: "0 0 1.25rem" }}>
-            {own.length} repos, all public
+        <section id="life" className="unit">
+          <h2 className="display reveal" style={{ fontSize: "clamp(3rem,9vw,8rem)", margin: "0 0 3rem" }}>
+            Off the keyboard
           </h2>
-          <p className="reveal" style={{ maxWidth: "36rem", color: "var(--steel)", margin: "0 0 2.5rem" }}>
-            Coursework, hackathon attempts, small tools and the projects above. Most small ones have no write-up yet, so the table lists only what GitHub shows: name, main language, last push.
-          </p>
-          <div className="reveal" role="img" aria-label={`Main language across ${langTotal} repos: ${langs.map(([l, c]) => `${l} ${c}`).join(", ")}`} style={{ display: "flex", height: 18, borderRadius: 2, overflow: "hidden", marginBottom: "0.75rem", gap: 2 }}>
-            {langs.map(([l, c], i) => (
-              <span key={l} style={{ flex: c, background: i < 4 ? tints[i] : "var(--steel-dim)", opacity: i < 4 ? 1 : 0.8 - Math.min(i - 4, 5) * 0.1 }} />
-            ))}
-          </div>
-          <p className="mono reveal" style={{ color: "var(--steel)", margin: "0 0 2.5rem", display: "flex", flexWrap: "wrap", gap: "0.4rem 1.2rem" }}>
-            {langs.map(([l, c]) => <span key={l}>{l} {c}</span>)}
-          </p>
-          <div className="reveal" style={{ overflowX: "auto" }}>
-            <table className="data mono">
-              <thead>
-                <tr><th>Repo</th><th>Language</th><th>Last push</th><th>Live</th></tr>
-              </thead>
-              <tbody>
-                {own.map((r) => (
-                  <tr key={r.name}>
-                    <td><a href={r.url} target="_blank" rel="noreferrer">{r.name}</a></td>
-                    <td style={{ color: "var(--steel)" }}>{r.lang ?? "n/a"}</td>
-                    <td style={{ color: "var(--steel)" }}>{r.pushed}</td>
-                    <td>{r.live ? <a href={r.live} target="_blank" rel="noreferrer">open</a> : ""}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <Gallery />
         </section>
 
         <section id="contact" className="unit" style={{ minHeight: "80svh", display: "grid", alignContent: "end" }}>
@@ -208,7 +185,7 @@ export default function Home() {
             <a href={person.github} target="_blank" rel="noreferrer">GitHub</a>
             <a href={person.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             <a href={person.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
-            <a href={person.resume} download>Resume (PDF)</a>
+            <a href={person.resume} target="_blank" rel="noreferrer">Resume (PDF)</a>
           </p>
         </section>
       </main>

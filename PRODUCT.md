@@ -37,8 +37,9 @@ Single-page static site (Next.js App Router, React, vanilla CSS), no backend or 
 ## Evidence on Hand
 
 - Resume (confirmed): B.E. CSE at Sri Eshwar College of Engineering (CGPA 7.5); Full Stack Developer at EFIQ Solutions since May 2026; MERN internship at Better Tomorrow, March 2026; projects Thiran, HustleGuard AI, RescueIQ; skills incl. AWS, Docker, networking.
-- GitHub: 44 repos (43 non-fork). Featured four have live Vercel URLs. VoxMentor description comes from its README.
-- Unverified: anything about the non-featured repos beyond name, language and push date.
+- GitHub: featured four have live Vercel URLs; VoxMentor description comes from its README. The full repo list is deliberately not shown on the site.
+- Hidden by choice: Better Tomorrow internship, CGPA/marks, certificates.
+- Images in `public/placeholders/` are synthetic placeholders to be replaced with real screenshots and photos.
 
 ## Product Principles
 
