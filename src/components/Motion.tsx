@@ -61,16 +61,6 @@ export default function Motion() {
         });
       });
 
-      const track = document.querySelector<HTMLElement>(".gallery-track");
-      if (track) {
-        const dist = () => Math.max(0, track.scrollWidth - track.parentElement!.clientWidth);
-        gsap.to(track, {
-          x: () => -dist(),
-          ease: "none",
-          scrollTrigger: { trigger: ".gallery-wrap", start: "top 90%", end: "bottom 10%", scrub: 0.6, invalidateOnRefresh: true },
-        });
-      }
-
       gsap.utils.toArray<HTMLElement>(".cable").forEach((el) => {
         gsap.from(el, {
           scaleX: 0,
