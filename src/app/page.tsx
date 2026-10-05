@@ -4,6 +4,7 @@ import Projects from "@/components/Projects";
 import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
 import Gallery from "@/components/Gallery";
+import { GitHub, LinkedIn, LeetCode, Resume } from "@/components/Icons";
 import { person, experience, education, skills, practice } from "@/data/content";
 
 const nav = [
@@ -59,7 +60,7 @@ export default function Home() {
             </h1>
             <div className="hero-fade" style={{ display: "flex", flexWrap: "wrap", gap: "2rem 3rem", alignItems: "end", justifyContent: "space-between" }}>
               <p style={{ margin: 0, maxWidth: "30rem", fontSize: "1.35rem", textWrap: "balance" }}>
-                Full stack developer. I build the app, then get it running on a server people can reach.
+                CSE student and full stack developer. I write React, Node and FastAPI apps, and I deploy them myself.
               </p>
               <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
                 <a className="plug" href={person.resume} target="_blank" rel="noreferrer">
@@ -81,12 +82,12 @@ export default function Home() {
               <Image src="/placeholders/portrait.svg" alt="Portrait of Karunesh" width={1000} height={1250} priority />
             </div>
             <div className="reveal" style={{ display: "grid", gap: "1.25rem", alignContent: "end", maxWidth: "38rem" }}>
-              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: 0 }}>Who is plugged in</h2>
+              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: 0 }}>About me</h2>
               <p style={{ margin: 0, textWrap: "pretty" }}>
-                I'm a computer science student at Sri Eshwar College of Engineering and a full stack developer at EFIQ Solutions.
+                I study computer science at Sri Eshwar College of Engineering and work as a full stack developer at EFIQ Solutions.
               </p>
               <p style={{ margin: 0, color: "var(--steel)", textWrap: "pretty" }}>
-                I like the whole path: building the React and Node or FastAPI app, then putting it on a server with HTTPS and keeping it running. Thiran, a platform for a large technical event, taught me that part the hard way.
+                Most of what I know about running software came from Thiran, the platform for a big technical event. I put it on a server with HTTPS, then had to keep it up while people were signing in.
               </p>
             </div>
           </div>
@@ -94,7 +95,7 @@ export default function Home() {
 
         <section id="work" className="unit">
           <h2 className="display reveal" style={{ fontSize: "clamp(3rem,9vw,8rem)", margin: "0 0 3rem" }}>
-            Four things I built and deployed
+            Four projects, all live
           </h2>
           <Projects />
         </section>
@@ -102,7 +103,7 @@ export default function Home() {
         <section id="record" className="unit">
           <div style={{ display: "grid", gap: "4rem", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 22rem), 1fr))" }}>
             <div className="reveal">
-              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: "0 0 2rem" }}>Where I work</h2>
+              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: "0 0 2rem" }}>Work</h2>
               {experience.map((e) => (
                 <div key={e.role} style={{ marginBottom: "2.25rem" }}>
                   <p className="mono" style={{ margin: 0, color: "var(--steel)" }}>{e.when}</p>
@@ -115,7 +116,7 @@ export default function Home() {
               ))}
             </div>
             <div className="reveal">
-              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: "0 0 2rem" }}>Where I study</h2>
+              <h2 className="display" style={{ fontSize: "clamp(2.5rem,6vw,5rem)", margin: "0 0 2rem" }}>Education</h2>
               <table className="data">
                 <tbody>
                   {education.map((e) => (
@@ -147,7 +148,7 @@ export default function Home() {
 
         <section id="stack" className="unit">
           <h2 className="display reveal" style={{ fontSize: "clamp(3rem,9vw,8rem)", margin: "0 0 3rem" }}>
-            What I plug in
+            Tools I use
           </h2>
           <div className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 24rem), 1fr))", columnGap: "4rem" }}>
             <table className="data" style={{ gridColumn: "1 / -1" }}>
@@ -172,7 +173,7 @@ export default function Home() {
 
         <section id="contact" className="unit" style={{ minHeight: "80svh", display: "grid", alignContent: "end" }}>
           <h2 className="display reveal" style={{ fontSize: "clamp(4rem,15vw,15rem)", margin: "0 0 2.5rem", lineHeight: 0.82 }}>
-            Open to roles
+            Looking for work
           </h2>
           <div className="reveal" style={{ display: "flex", flexWrap: "wrap", gap: "1.25rem", alignItems: "center", marginBottom: "3rem" }}>
             <a className="plug" href={`mailto:${person.email}`}>
@@ -182,10 +183,10 @@ export default function Home() {
             <CopyEmail email={person.email} />
           </div>
           <p className="mono reveal" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 2rem", margin: 0 }}>
-            <a href={person.github} target="_blank" rel="noreferrer">GitHub</a>
-            <a href={person.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href={person.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
-            <a href={person.resume} target="_blank" rel="noreferrer">Resume (PDF)</a>
+            <a className="icon-link" href={person.github} target="_blank" rel="noreferrer"><GitHub />GitHub</a>
+            <a className="icon-link" href={person.linkedin} target="_blank" rel="noreferrer"><LinkedIn />LinkedIn</a>
+            <a className="icon-link" href={person.leetcode} target="_blank" rel="noreferrer"><LeetCode />LeetCode</a>
+            <a className="icon-link" href={person.resume} target="_blank" rel="noreferrer"><Resume />Resume (PDF)</a>
           </p>
         </section>
       </main>

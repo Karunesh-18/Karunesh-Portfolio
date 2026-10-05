@@ -227,6 +227,10 @@ table.data a:hover { color: var(--yellow); text-decoration: underline; }
   .unit::before, .unit::after { display: none; }
 }
 
+.icon-link { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--steel); transition: color 0.2s var(--ease); }
+.icon-link:hover { color: var(--ink); }
+.icon-link svg { flex: none; }
+
 /* images */
 .port-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 2.5rem; padding: 0 0 2.5rem calc(4rem + 1.25rem); }
 .port-shots { display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem; align-items: end; }

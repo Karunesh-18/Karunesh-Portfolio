@@ -28,9 +28,9 @@ export const projects: Project[] = [
     name: "HustleGuard AI",
     port: "P1",
     cable: "var(--cobalt)",
-    line: "Parametric insurance platform with automated claims and fraud detection.",
+    line: "Parametric insurance with automated claims and fraud checks.",
     detail:
-      "Real-time data ingestion, background processing for claim workflows, fraud detection and risk-based pricing models, packaged in Docker with environment-driven configuration.",
+      "Pulls in live data, runs claim workflows in the background on Celery and Redis, flags fraud, and prices risk with a model. Packaged in Docker.",
     stack: ["Next.js", "FastAPI", "PostgreSQL", "Celery", "Redis", "Docker", "ML"],
     live: "https://hustle-guard-ai.vercel.app",
     repo: "https://github.com/Karunesh-18/HustleGuard-AI",
@@ -40,9 +40,9 @@ export const projects: Project[] = [
     name: "RescueIQ",
     port: "P2",
     cable: "var(--green)",
-    line: "Predicts surplus food and routes it to NGOs through automated matching.",
+    line: "Predicts surplus food and matches it to NGOs.",
     detail:
-      "JWT auth with role-based access, live location tracking and mapping, NGO discovery, donation creation from plain language, impact analytics, and scheduled model retraining.",
+      "Donors describe a donation in plain language. NGOs find it and track pickups on a live map. Logins are role-based, and the prediction model retrains on a schedule.",
     stack: ["React", "FastAPI", "PostgreSQL (Supabase)", "XGBoost", "Ollama"],
     live: "https://rescue-iq.vercel.app",
     repo: "https://github.com/Karunesh-18/RescueIQ",
@@ -52,9 +52,9 @@ export const projects: Project[] = [
     name: "VoxMentor",
     port: "P3",
     cable: "var(--orange)",
-    line: "AI coding mentor you can talk to: lessons, practice, and algorithm visualizers.",
+    line: "A coding tutor you can talk to.",
     detail:
-      "Skill-tree learning modules, daily challenges, AI feedback on submitted code, step-by-step algorithm visualization, XP and streak tracking, and voice in and out through speech-to-text and text-to-speech.",
+      "Lessons laid out as skill trees, daily challenges, AI feedback on the code you submit, and step-by-step algorithm visualizers. XP and streaks track progress, and you can speak to it through ElevenLabs.",
     stack: ["React + Vite", "FastAPI", "MongoDB", "OpenRouter", "ElevenLabs"],
     live: "https://vox-mentor.vercel.app",
     repo: "https://github.com/Karunesh-18/VoxMentor",
@@ -64,9 +64,9 @@ export const projects: Project[] = [
     name: "Thiran",
     port: "P4",
     cable: "var(--yellow)",
-    line: "Event management platform built for a large technical event.",
+    line: "Registration and operations for a large technical event.",
     detail:
-      "Registrations, participant engagement and operations in one app. Deployed to a server with SSL/TLS for HTTPS, then monitored and debugged while the event was running.",
+      "One app for sign-ups, participant engagement and the organisers' workflow. Deployed with HTTPS, then monitored and debugged while the event was running.",
     stack: ["React", "Node.js", "Express", "MongoDB", "SSL/TLS"],
     live: "https://thiran-two.vercel.app",
     repo: "https://github.com/Karunesh-18/thiran",
@@ -79,8 +79,8 @@ export const experience = [
     role: "Full Stack Developer",
     org: "EFIQ Solutions",
     points: [
-      "Builds and maintains web applications from development through deployment.",
-      "Debugs and optimizes across several projects; helps with deployment and production fixes.",
+      "Builds and maintains web apps from first commit to deployment.",
+      "Debugs and tunes several projects, and helps fix issues in production.",
     ],
   },
 ];
