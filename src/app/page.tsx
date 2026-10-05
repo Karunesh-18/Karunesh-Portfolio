@@ -5,7 +5,7 @@ import CopyEmail from "@/components/CopyEmail";
 import Image from "next/image";
 import Gallery from "@/components/Gallery";
 import { GitHub, LinkedIn, LeetCode, Resume } from "@/components/Icons";
-import { person, experience, education, skills, practice } from "@/data/content";
+import { person, experience, education, skills, practice, facts } from "@/data/content";
 
 const nav = [
   { id: "top", label: "Home" },
@@ -46,6 +46,10 @@ export default function Home() {
             </a>
           ))}
         </nav>
+        <div className="rail-social">
+          <a href={person.github} target="_blank" rel="noreferrer" aria-label="GitHub"><GitHub /></a>
+          <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedIn /></a>
+        </div>
         <span className="screw" aria-hidden="true" />
       </aside>
 
@@ -68,7 +72,7 @@ export default function Home() {
                   <span className="tip" />
                 </a>
                 <a className="plug alt" href={`mailto:${person.email}`}>
-                  <span className="body">Email</span>
+                  <span className="body">Hire me</span>
                   <span className="tip" />
                 </a>
               </div>
@@ -89,6 +93,14 @@ export default function Home() {
               <p style={{ margin: 0, color: "var(--steel)", textWrap: "pretty" }}>
                 Most of what I know about running software came from Thiran, the platform for a big technical event. I put it on a server with HTTPS, then had to keep it up while people were signing in.
               </p>
+              <dl className="facts">
+                {facts.map((f) => (
+                  <div key={f.what}>
+                    <dt className="mono">{f.what}</dt>
+                    <dd className="display">{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
         </section>
@@ -189,6 +201,11 @@ export default function Home() {
             <a className="icon-link" href={person.resume} target="_blank" rel="noreferrer"><Resume />Resume (PDF)</a>
           </p>
         </section>
+        <footer className="foot mono">
+          <span>&copy; {new Date().getFullYear()} {person.name}</span>
+          <a href={`mailto:${person.email}`}>{person.email}</a>
+          <span>Built with Next.js, GSAP and a little WebGL</span>
+        </footer>
       </main>
       <Motion />
     </>

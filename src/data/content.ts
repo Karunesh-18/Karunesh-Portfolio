@@ -114,3 +114,10 @@ export const gallery = [
   { file: "gallery-whiteboard.svg", caption: "Whiteboard session" },
   { file: "gallery-setup.svg", caption: "Dev setup" },
 ];
+
+// Counts taken straight from the resume.
+export const facts = [
+  { what: "Live projects", value: "4" },
+  { what: "LeetCode solved", value: "155+" },
+  { what: "SkillRack solved", value: "900+" },
+];
